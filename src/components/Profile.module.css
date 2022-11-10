@@ -1,0 +1,25 @@
+.content {
+    grid-area: c;
+    background: antiquewhite;
+    margin-left: 10px;
+}
+.avatar img{
+    width: 250px;
+    height: 200px;
+    border-radius: 30px ;
+    border: solid 3px black;
+    margin: 20px;
+
+}
+.avatar span{
+
+}
+.header img{
+    width: 100%;
+}
+.item{
+    color: red;
+}
+.posts{
+
+}
