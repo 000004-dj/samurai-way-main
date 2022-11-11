@@ -1,0 +1,32 @@
+.item {
+    color: black;
+    margin-top: 30px;
+    border: solid 1px White;
+    padding: 5px;
+}
+
+.like:hover {
+    color: red;
+}
+
+.avatar {
+    width: 50px;
+    display: inline-block;
+    border-radius: 50px;
+}
+
+.text {
+    text-align: left;
+    display: inline-block;
+    margin-left: 20px;
+}
+.like{
+    text-align: right;
+
+}
+.like span{
+    margin-right: 20px;
+    border: solid 1px black;
+    padding: 2px;
+
+}

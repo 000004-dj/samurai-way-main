@@ -1,0 +1,19 @@
+.avatar img{
+    width: 150px;
+    height: 160px;
+    border-radius: 30px ;
+    border: solid 3px black;
+    margin: 20px;
+
+
+}
+.avatar span{
+
+}
+.userName{
+    color: #000;
+    display: inline-block;
+    font-size: 35px;
+    text-align: left;
+    margin-left: 20px;
+}

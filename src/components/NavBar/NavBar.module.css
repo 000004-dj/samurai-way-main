@@ -1,0 +1,20 @@
+.nav {
+    grid-area: n;
+    background: #5468F1;
+    font-size: 28px;
+    color: #FFFFFF;
+
+}
+
+
+.item a{
+    margin-left: 10px;
+    padding-top: 5px;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+}
+ a:hover {
+    color: black;
+}
+
