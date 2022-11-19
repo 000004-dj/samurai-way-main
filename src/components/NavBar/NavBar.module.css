@@ -7,14 +7,19 @@
 }
 
 
-.item a{
+.item a {
     margin-left: 10px;
     padding-top: 5px;
     color: #FFFFFF;
     text-decoration: none;
     display: block;
 }
- a:hover {
-    color: black;
+
+a:hover {
+    color: #000000;
+
+}
+.item a.activeLink {
+    color: gold;
 }
 

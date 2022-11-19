@@ -1,0 +1,15 @@
+.userAvatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.dialog{
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    border-bottom: dashed 1px #d0d6fb;
+}
+.userName{
+    margin: auto 10px;
+}

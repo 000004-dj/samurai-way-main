@@ -1,0 +1,17 @@
+.button{
+    display: block;
+    margin-top: 10px;
+    background: red;
+    border-radius: 20px;
+    font-family: "PT Sans";
+}
+.item textarea{
+    display: block;
+    width: 80%;
+    resize: revert;
+
+
+}
+.posts h2{
+    text-align: center;
+}

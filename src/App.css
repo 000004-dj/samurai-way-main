@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -46,10 +47,19 @@
   grid-template-rows: 60px 1fr;
   grid-auto-columns: 2fr 10fr;
   /*grid-gap: 10px;*/
-  width: 1450px;
+  width: auto;
   margin: auto;
+
+}
+.app-wrapper-content {
+  grid-area: c;
+  background: antiquewhite;
+  margin-left: 10px;
 }
 
+body{
+  font-family: "PT Sans";
+}
 
 
 
