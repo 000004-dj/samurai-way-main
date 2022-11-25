@@ -6,6 +6,7 @@ import Avatar from "./Avatar/Avatar";
 
 
 const Profile = () => {
+
     return (
         <div>
             <HeaderImage/>

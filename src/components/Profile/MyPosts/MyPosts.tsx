@@ -1,25 +1,12 @@
 import s from "./MyPosts.module.css";
 import React from "react";
 import Post from "./Post/Post";
-import { v1 } from "uuid";
+import state from "../../../redux/state";
+
+
 
 
 const MyPosts = () => {
-
-    const postsData = [
-        {
-            id: v1(),
-            message: "Hello, Props!",
-            likes: "23",
-        },
-        {
-            id: v1(),
-            message: "Wow, its cool!",
-            likes: "28",
-        },
-
-
-    ]
 
     return (
         <div className={s.posts}>
@@ -31,7 +18,7 @@ const MyPosts = () => {
             </div>
 
             {
-                postsData.map(i => {
+                state.profilePage.postsData.map(i => {
                    return  <Post message={i.message} likes={i.likes}/>
                 })}
 
