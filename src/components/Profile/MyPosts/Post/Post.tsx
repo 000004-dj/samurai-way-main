@@ -1,7 +1,12 @@
 import classes from "./Post.module.css";
-import React from "react";
+import React, {useState} from "react";
+
+
 
 const Post = (props: any) => {
+
+    const [like, setLike] = useState(0)
+
     return (
         <div className={classes.item}>
             <img className={classes.avatar}
@@ -9,7 +14,7 @@ const Post = (props: any) => {
                  alt=""/>
             <span className={classes.text}>{props.message}</span>
             <div className={classes.like}>
-                <span> {props.likes} likes</span>
+                <span onClick = {() => setLike(like + 1)}> {props.likes !== 0 ? props.likes : like } likes</span>
             </div>
 
         </div>

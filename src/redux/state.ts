@@ -1,4 +1,8 @@
-import {v1} from "uuid";
+let renderEntireTree = (text: any) => {
+    console.log(text)
+}
+
+
 type DialogItemDataType = {
     name: string
     id: number
@@ -11,7 +15,7 @@ type MessagesDataType = {
 type PostsDataType = {
     id: number
     message: string
-    likes: string
+    likes: number
 }
 type DialogPageType = {
     dialogItemData: Array<DialogItemDataType>
@@ -19,11 +23,14 @@ type DialogPageType = {
 }
 type ProfilePageType = {
     postsData: Array<PostsDataType>
+    newPostsText: string
+
 }
-type RootStateType = {
+export type RootStateType = {
     profilePage: ProfilePageType
     dialogPage: DialogPageType
 }
+
 
 let state: RootStateType = {
     profilePage: {
@@ -31,15 +38,16 @@ let state: RootStateType = {
             {
                 id: 1,
                 message: "Hello, Props!",
-                likes: "23",
+                likes: 23,
             },
             {
                 id: 2,
                 message: "Wow, its cool!",
-                likes: "28",
+                likes: 28,
             },
 
         ],
+        newPostsText: '',
     },
     dialogPage: {
         dialogItemData: [
@@ -86,6 +94,27 @@ let state: RootStateType = {
         ],
     }
 }
-
-
 export default state
+
+export const subscribe = (observer: any) => {
+    renderEntireTree = observer
+}
+
+export const updateNewPostsText = (newText: string) => {
+    state.profilePage.newPostsText = newText
+    renderEntireTree(state)
+
+}
+
+export const addPost = () => {
+    state.profilePage.postsData.push(
+        {
+            id: 5,
+            message: state.profilePage.newPostsText,
+            likes: 0,
+        }
+    )
+
+    state.profilePage.newPostsText = ""
+    renderEntireTree(state)
+}

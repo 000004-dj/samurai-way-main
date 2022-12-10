@@ -1,0 +1,14 @@
+.title{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+.friend{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+.friendName{
+    font-size: 15px;
+    margin-top: -15px;
+}

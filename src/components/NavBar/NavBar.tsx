@@ -1,9 +1,14 @@
 import React from "react";
 import classes from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
+import {Friends} from "../Friends/Friends";
+import {RootStateType} from "../../redux/state";
 
+type PropsType = {
+    state: RootStateType
+}
 
-const NavBar = () => {
+const NavBar = (props: PropsType) => {
     return (
         <nav className={classes.nav}>
             <div className={classes.item}>
@@ -21,6 +26,10 @@ const NavBar = () => {
             <div className={classes.item}>
                 <NavLink to="/Settings" activeClassName={classes.activeLink}>Settings</NavLink>
             </div>
+           <div>
+               <Friends state={props.state}/>
+           </div>
+
         </nav>
     )
 }
