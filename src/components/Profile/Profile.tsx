@@ -3,13 +3,11 @@ import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
 import HeaderImage from "./HeaderImage/HeaderImage";
 import Avatar from "./Avatar/Avatar";
-import {RootStateType} from "../../redux/state"
+import {AddPostActionType, RootStateType, StoreType, UpdateNewPostActionType} from "../../redux/state"
 
 type PropsType = {
-    state: RootStateType
-    addPost: (postMessage: string) => void
-    newPostsText:  string
-    updateNewPostsText: (newText: string)=>void
+    store: StoreType
+    dispatch: (action: AddPostActionType | UpdateNewPostActionType) => void
 }
 
 const Profile = (props: PropsType) => {
@@ -19,10 +17,8 @@ const Profile = (props: PropsType) => {
             <HeaderImage/>
             <Avatar/>
             <MyPosts
-                state={props.state}
-                addPost={props.addPost}
-                newPostsText={props.state.profilePage.newPostsText}
-                updateNewPostsText={props.updateNewPostsText}
+                state={props.store.getState()}
+                dispatch={props.dispatch}
             />
 
         </div>

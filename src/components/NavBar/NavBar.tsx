@@ -2,7 +2,7 @@ import React from "react";
 import classes from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
 import {Friends} from "../Friends/Friends";
-import {RootStateType} from "../../redux/state";
+import {RootStateType, StoreType} from "../../redux/state";
 
 type PropsType = {
     state: RootStateType
@@ -34,3 +34,6 @@ const NavBar = (props: PropsType) => {
     )
 }
 export default NavBar
+
+
+
