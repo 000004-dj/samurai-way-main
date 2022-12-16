@@ -1,10 +1,11 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import s from "./Dialogs.module.css"
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {RootStateType, StoreType} from "../../redux/state";
-import {v1} from "uuid";
-import {renderEntireTree} from "../../index";
+import {StoreType} from "../../redux/state";
+import {newMessageTextActionCreator, sendMessageTextActionCreator} from "../../redux/dialogs-reducer";
+// import {v1} from "uuid";
+// import {renderEntireTree} from "../../index";
 
 type PropsType = {
     store: StoreType
@@ -12,15 +13,20 @@ type PropsType = {
 
 export function Dialogs(props: PropsType) {
 
-    let addMessage: any = React.createRef()
-    let addText = () => {
-        debugger
-        let text = addMessage.current.value
-        props.store.getState().dialogPage.messagesData.push({id: v1(), message: text})
-        addMessage.current.value = ''
-        renderEntireTree(props.store)
-
+    let onSendMessageClick = () => {
+        props.store.dispatch(sendMessageTextActionCreator())
     }
+
+    let onSendMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        let text = e.currentTarget.value
+        props.store.dispatch(newMessageTextActionCreator(text))
+        // props.store.getState().dialogPage.messagesData.push({id: v1(), message: text})
+        // addMessage.current.value = ''
+        // renderEntireTree(props.store)
+    }
+
+
+    let newMessageBody = props.store.getState().dialogPage.newMessageText
 
     return (
         <div className={s.dialogs}>
@@ -35,10 +41,13 @@ export function Dialogs(props: PropsType) {
                     props.store.getState().dialogPage.messagesData.map(i => {
                         return <Message key={i.id} message={i.message}/>
                     })}
-                <textarea ref={addMessage}>
+                <textarea
+                    value={newMessageBody}
+                    onChange={onSendMessageChange}
+                >
 
                 </textarea>
-                <button onClick={addText}>PUSH</button>
+                <button onClick={onSendMessageClick}>PUSH</button>
             </div>
         </div>
     )

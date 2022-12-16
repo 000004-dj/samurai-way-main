@@ -1,9 +1,9 @@
 import React from "react";
-import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
 import HeaderImage from "./HeaderImage/HeaderImage";
 import Avatar from "./Avatar/Avatar";
-import {AddPostActionType, RootStateType, StoreType, UpdateNewPostActionType} from "../../redux/state"
+import { StoreType} from "../../redux/state"
+import {AddPostActionType, UpdateNewPostActionType} from "../../redux/profile-reducer";
 
 type PropsType = {
     store: StoreType

@@ -1,13 +1,13 @@
 import s from "./MyPosts.module.css";
 import React, {ChangeEvent} from "react";
 import Post from "./Post/Post";
+import {RootStateType,} from "../../../redux/state";
 import {
     addPostActionCreator,
     AddPostActionType,
     onPostsChangesActionCreator,
-    RootStateType,
     UpdateNewPostActionType
-} from "../../../redux/state";
+} from "../../../redux/profile-reducer";
 
 type PropsType = {
     state: RootStateType
