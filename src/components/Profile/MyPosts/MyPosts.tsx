@@ -1,32 +1,28 @@
 import s from "./MyPosts.module.css";
 import React, {ChangeEvent} from "react";
 import Post from "./Post/Post";
-import {RootStateType,} from "../../../redux/state";
-import {
-    addPostActionCreator,
-    AddPostActionType,
-    onPostsChangesActionCreator,
-    UpdateNewPostActionType
-} from "../../../redux/profile-reducer";
+import {PostsDataType} from "../../../redux/store";
 
 type PropsType = {
-    state: RootStateType
-    dispatch: (action: AddPostActionType | UpdateNewPostActionType) => void
+    updateNewPostText: (text: string) => void
+    addPost: () => void
+    posts: Array<PostsDataType>
+    newPostsText: string
 }
 
 
 const MyPosts = (props: PropsType) => {
 
 
-    let addText = () => {
-        props.dispatch(addPostActionCreator(props.state.profilePage.newPostsText))
+    let addPostText = () => {
+        props.addPost()
 
 
     }
 
     let onPostsChanges = (e: ChangeEvent<HTMLTextAreaElement>) => {
-
-        props.dispatch(onPostsChangesActionCreator(e.currentTarget.value))
+        let text = e.currentTarget.value
+        props.updateNewPostText(text)
 
     }
 
@@ -38,14 +34,14 @@ const MyPosts = (props: PropsType) => {
                 <textarea
                     placeholder={"What new?"}
                     onChange={onPostsChanges}
-                    value={props.state.profilePage.newPostsText}
+                    value={props.newPostsText}
                 />
 
-                <button className={s.button} onClick={addText} >Published</button>
+                <button className={s.button} onClick={addPostText}>Published</button>
             </div>
 
             {
-                props.state.profilePage.postsData.map(i => {
+                props.posts.map(i => {
                     return <Post key={i.id} message={i.message} likes={i.likes}/>
                 })}
 

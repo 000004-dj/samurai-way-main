@@ -38,7 +38,11 @@ export type StoreType = {
     subscribe: (observer: any) => void
     dispatch: (action: DispatchType) => void
 }
-export type DispatchType = sendMessageTextActionType | AddPostActionType | UpdateNewPostActionType | newMessageTextActionType
+export type DispatchType =
+    sendMessageTextActionType
+    | AddPostActionType
+    | UpdateNewPostActionType
+    | newMessageTextActionType
 
 
 export const store: StoreType = {

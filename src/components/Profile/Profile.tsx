@@ -1,13 +1,11 @@
 import React from "react";
-import MyPosts from "./MyPosts/MyPosts";
 import HeaderImage from "./HeaderImage/HeaderImage";
 import Avatar from "./Avatar/Avatar";
-import { StoreType} from "../../redux/state"
-import {AddPostActionType, UpdateNewPostActionType} from "../../redux/profile-reducer";
+import {StoreType} from "../../redux/store"
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 type PropsType = {
     store: StoreType
-    dispatch: (action: AddPostActionType | UpdateNewPostActionType) => void
 }
 
 const Profile = (props: PropsType) => {
@@ -16,9 +14,8 @@ const Profile = (props: PropsType) => {
         <div>
             <HeaderImage/>
             <Avatar/>
-            <MyPosts
-                state={props.store.getState()}
-                dispatch={props.dispatch}
+            <MyPostsContainer
+                store={props.store}
             />
 
         </div>

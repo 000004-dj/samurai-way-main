@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Friends.module.css"
 import s1 from "../Dialogs/DialogItem/DialogsItem.module.css"
-import {RootStateType} from "../../redux/state";
+import {RootStateType} from "../../redux/store";
 
 type PropsType = {
     state: RootStateType

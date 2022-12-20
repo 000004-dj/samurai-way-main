@@ -2,7 +2,7 @@ import React from "react";
 import classes from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
 import {Friends} from "../Friends/Friends";
-import {RootStateType, StoreType} from "../../redux/state";
+import {RootStateType, StoreType} from "../../redux/store";
 
 type PropsType = {
     state: RootStateType
