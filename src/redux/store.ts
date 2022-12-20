@@ -1,3 +1,5 @@
+
+import React from "react";
 import {v1} from "uuid";
 import profileReducer, {AddPostActionType, UpdateNewPostActionType} from "./profile-reducer";
 import dialogReducer, {newMessageTextActionType, sendMessageTextActionType} from "./dialogs-reducer";
@@ -37,6 +39,7 @@ export type StoreType = {
     _renderEntireTree: (text: any) => void
     subscribe: (observer: any) => void
     dispatch: (action: DispatchType) => void
+    children?: React.ReactNode
 }
 export type DispatchType =
     sendMessageTextActionType
