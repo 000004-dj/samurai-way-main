@@ -3,7 +3,7 @@ import classes from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
 import {Friends} from "../Friends/Friends";
 // @ts-ignore
-import {store, StoreContext} from "../../redux/redux-store";
+import {store} from "../../redux/redux-store";
 
 
 const NavBar = () => {
@@ -23,6 +23,8 @@ const NavBar = () => {
         </div>
         <div className={classes.item}>
             <NavLink to="/Settings" activeClassName={classes.activeLink}>Settings</NavLink>
+        </div><div className={classes.item}>
+            <NavLink to="/Users" activeClassName={classes.activeLink}>Users</NavLink>
         </div>
         <div>
             <Friends state={store.getState()}/>
