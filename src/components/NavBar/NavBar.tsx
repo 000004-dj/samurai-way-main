@@ -2,13 +2,12 @@ import React from "react";
 import classes from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
 import {Friends} from "../Friends/Friends";
-import {StoreContext} from "../../StoreContext";
+// @ts-ignore
+import {store, StoreContext} from "../../redux/redux-store";
 
 
 const NavBar = () => {
-    return (
-        <StoreContext.Consumer>{
-            (store)=>{
+
     return (<nav className={classes.nav}>
         <div className={classes.item}>
             <NavLink to="/Profile" activeClassName={classes.activeLink}>Profile</NavLink>
@@ -30,9 +29,9 @@ const NavBar = () => {
         </div>
 
     </nav>)
-            }}
-</StoreContext.Consumer>
-)
+
+
+
 
 }
 export default NavBar

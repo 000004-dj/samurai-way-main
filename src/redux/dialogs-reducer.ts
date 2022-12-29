@@ -2,7 +2,22 @@ import {v1} from "uuid";
 import {DialogPageType} from "./store";
 
 export type newMessageTextActionType = ReturnType<typeof newMessageTextActionCreator>
-export type sendMessageTextActionType = ReturnType<typeof sendMessageTextActionCreator>
+export type sendMessageTextActionType = ReturnType<typeof sendMessageActionCreator>
+
+export type InitialStateType = {
+    dialogItemData: DialogItemDataType[]
+    messagesData: MessagesDataType[]
+    newMessageText: string
+}
+type DialogItemDataType = {
+    name: string
+    id: string
+    userAvatar: string
+}
+type MessagesDataType = {
+    id: string
+    message: string
+}
 
 const ADD_NEW_MESSAGE_TEXT = "ADD-NEW-MESSAGE-TEXT"
 const SEND_MESSAGE = "SEND-MESSAGE"
@@ -13,14 +28,13 @@ export const newMessageTextActionCreator = (text: string) => {
         newMessText: text,
     }
 }
-export const sendMessageTextActionCreator = () => {
+export const sendMessageActionCreator = () => {
     return {
         type: "SEND-MESSAGE",
     }
 }
 
-
-let initialState = {
+const initialState: InitialStateType = {
     dialogItemData: [
         {
             name: "Sam",
@@ -68,20 +82,24 @@ let initialState = {
 
 export const dialogReducer = (state: DialogPageType = initialState, action: any) => {
     switch (action.type) {
-        case ADD_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newMessText
-            return state;
+        case ADD_NEW_MESSAGE_TEXT: {
+            return {
+                ...state,
+                newMessageText: action.newMessText
+            };
+        }
         case SEND_MESSAGE:
             let text = state.newMessageText
-            state.newMessageText = ""
-            state.messagesData.push({
-                id: v1(),
-                message: text,
-            })
-            return state;
+            return {
+                ...state,
+                newMessageText: "",
+                messagesData: [
+                    ...state.messagesData,
+                    {id: v1(), message: text,}
+                ]
+            };
         default:
             return state;
-
     }
 }
 

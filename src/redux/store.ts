@@ -1,4 +1,3 @@
-
 import React from "react";
 import {v1} from "uuid";
 import profileReducer, {AddPostActionType, UpdateNewPostActionType} from "./profile-reducer";
@@ -41,6 +40,7 @@ export type StoreType = {
     dispatch: (action: DispatchType) => void
     children?: React.ReactNode
 }
+
 export type DispatchType =
     sendMessageTextActionType
     | AddPostActionType

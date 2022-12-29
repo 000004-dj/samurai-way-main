@@ -1,14 +1,15 @@
 import s from "./MyPosts.module.css";
 import React, {ChangeEvent} from "react";
 import Post from "./Post/Post";
-import {PostsDataType} from "../../../redux/store";
+import {InitialStateType} from "../../../redux/profile-reducer";
 
 type PropsType = {
     updateNewPostText: (text: string) => void
     addPost: () => void
-    posts: Array<PostsDataType>
+    profilePage: InitialStateType
     newPostsText: string
 }
+
 
 
 const MyPosts = (props: PropsType) => {
@@ -16,8 +17,6 @@ const MyPosts = (props: PropsType) => {
 
     let addPostText = () => {
         props.addPost()
-
-
     }
 
     let onPostsChanges = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -41,7 +40,7 @@ const MyPosts = (props: PropsType) => {
             </div>
 
             {
-                props.posts.map(i => {
+                props.profilePage.postsData.map((i: any) => {
                     return <Post key={i.id} message={i.message} likes={i.likes}/>
                 })}
 

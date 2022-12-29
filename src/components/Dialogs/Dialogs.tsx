@@ -2,18 +2,19 @@ import React, {ChangeEvent} from "react";
 import s from "./Dialogs.module.css"
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import { DialogPageType} from "../../redux/store";
+import {InitialStateType} from "../../redux/dialogs-reducer";
 
 
 type PropsType = {
     onSendMessage: () => void
     onSendChange: (text: string) => void
-    state: DialogPageType
+    dialogPage: InitialStateType
 }
+
 
 export function Dialogs(props: PropsType) {
 
-    let newMessageBody = props.state.newMessageText
+    let newMessageBody = props.dialogPage.newMessageText
 
     let onSendMessageClick = () => {
         props.onSendMessage()
@@ -31,13 +32,13 @@ export function Dialogs(props: PropsType) {
         <div className={s.dialogs}>
             <div className={s.dialogItem}>
                 {
-                    props.state.dialogItemData.map(i => {
+                    props.dialogPage.dialogItemData.map(i => {
                         return <DialogItem name={i.name} id={i.id} userAvatar={i.userAvatar}/>
                     })}
             </div>
             <div className={s.messages}>
                 {
-                    props.state.messagesData.map(i => {
+                    props.dialogPage.messagesData.map(i => {
                         return <Message key={i.id} message={i.message}/>
                     })}
                 <textarea
