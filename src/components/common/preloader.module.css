@@ -1,0 +1,7 @@
+.preloaderImage{
+    width: 50px;
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+}
